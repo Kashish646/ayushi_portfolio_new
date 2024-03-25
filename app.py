@@ -47,7 +47,7 @@ def external_url(url):
 
 @app.route('/FriendsCorner')
 def FriendsCorner():
-    return redirect(url_for('external_url', url='https://friendscorner.vercel.app/'))
+    return redirect(url_for('friends-corner', url='https://friendscorner.vercel.app/'))
 # @app.route('/FriendsCorner')
 # def FriendsCorner():
 #     return redirect(url_for('external_url', url='https://friendscorner.vercel.app/'))
