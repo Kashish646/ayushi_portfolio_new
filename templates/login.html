@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .container1 {
-            background-image: url('../static/photos/memory_lane.jpg');
+/*             background-image: url('../static/photos/memory_lane.jpg'); */
             background-size: cover;
             backround-color: rgb(239, 200, 152);
             background-position: center;
@@ -55,38 +55,40 @@
         }
     </style>
 </head>
-<body><div class="container1">
-     <!-- {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul class="flashes">
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        {% endwith %} -->
-    <h1>Welcome to Memory Lane</h1>
-    <div class="container"  >
-        
-        <h2 >LOGIN</h2>
-        <form action="{{ url_for('login') }}" method="post">
-            <div class="form-group">
-                <label for="password", style="color:rgb(235, 106, 51) ;">PASSWORD:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary rose-gold-button">Submit</button>
-        </form>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul class="flashes" >
-            {% for message in messages %}
-                <blockquote style="text-align: center; font-weight: 900; color: #f90000;" >{{ message }}</blockquote>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        {% endwith %}
-    </div>
+<body><div class="w-60 col-md-9 col-sm-12 bg-primary d-flex align-items-center justify-content-center" style="min-height: 70vh; background-image: url('../Photos/frame_background.jpg'); background-size: cover; box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.75);"> 
+<div class="container1">
+<!-- {% with messages = get_flashed_messages() %}
+   {% if messages %}
+       <ul class="flashes">
+       {% for message in messages %}
+           <li>{{ message }}</li>
+       {% endfor %}
+       </ul>
+   {% endif %}
+   {% endwith %} -->
+<h1>Welcome to Memory Lane</h1>
+<div class="container"  >
+   
+   <h2 >LOGIN</h2>
+   <form action="{{ url_for('login') }}" method="post">
+       <div class="form-group">
+           <label for="password", style="color:rgb(235, 106, 51) ;">PASSWORD:</label>
+           <input type="password" class="form-control" id="password" name="password" required>
+       </div>
+       <button type="submit" class="btn btn-primary rose-gold-button">Submit</button>
+   </form>
+   {% with messages = get_flashed_messages() %}
+   {% if messages %}
+       <ul class="flashes" >
+       {% for message in messages %}
+           <blockquote style="text-align: center; font-weight: 900; color: #f90000;" >{{ message }}</blockquote>
+       {% endfor %}
+       </ul>
+   {% endif %}
+   {% endwith %}
 </div>
+</div>           
+</div> 
    
 </body>
 </html>
