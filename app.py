@@ -41,13 +41,13 @@ def Transformation():
 def Wedding():
     return render_template('Wedding.html')
     
-@app.route('/external_url/<url>')
-def external_url(url):
-    return redirect(url)
+# @app.route('/external_url/<url>')
+# def external_url(url):
+#     return redirect(url)
 
 @app.route('/FriendsCorner')
 def FriendsCorner():
-    return redirect(url_for('friends-corner', url='https://friendscorner.vercel.app/'))
+    return redirect('https://friendscorner.vercel.app/')
 # @app.route('/FriendsCorner')
 # def FriendsCorner():
 #     return redirect(url_for('external_url', url='https://friendscorner.vercel.app/'))
