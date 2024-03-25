@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-/*             background-image: url('/static/photos/memory_lane.jpg'); */
+            background-image: url('../static/photos/memory_lane.jpg');
             background-size: cover;
+            backround-color:bisque;
             background-position: center;
             display: flex;
             flex-direction: column;
@@ -64,9 +65,9 @@
             </ul>
         {% endif %}
         {% endwith %} -->
-    
-    <div class="container"  style="background-image: url('{{ url_for('static', filename='photos/memory_lane.jpg') }}');">
-        <h1>Welcome to Memory Lane</h1>
+    <h1>Welcome to Memory Lane</h1>
+    <div class="container"  >
+        
         <h2 >LOGIN</h2>
         <form action="{{ url_for('login') }}" method="post">
             <div class="form-group">
