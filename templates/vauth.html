@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Voice Authentication</h1>
+        <p>Please speak your password to login.</p>
+        <button class="btn" id="startBtn">Start</button>
+        <div id="results"></div>
+    </div>
+    <script>
+        const startBtn = document.getElementById('startBtn');
+        const resultsDiv = document.getElementById('results');
+
+        function startRecognition() {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function(stream) {
+                const mediaRecorder = new MediaRecorder(stream);
+                const audioChunks = [];
+
+                mediaRecorder.addEventListener("dataavailable", function(event) {
+                    audioChunks.push(event.data);
+                });
+
+                mediaRecorder.addEventListener("stop", function() {
+                    const audioBlob = new Blob(audioChunks);
+                    const audioUrl = URL.createObjectURL(audioBlob);
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/voice-print", true);
+                    xhr.upload.onprogress = function(event) {
+                        if (event.lengthComputable) {
+                            const percentComplete = (event.loaded / event.total) * 100;
+                            console.log("Uploaded " + percentComplete + "%");
+                        }
+                    };
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            console.log("Voice print uploaded successfully");
+                            resultsDiv.textContent = "Voice print uploaded successfully";
+                        } else {
+                            console.log("Error uploading voice print");
+                            resultsDiv.textContent = "Error uploading voice print";
+                        }
+                    };
+                    xhr.send(audioBlob);
+                });
+
+                mediaRecorder.start();
+                setTimeout(function() {
+                    mediaRecorder.stop();
+                }, 4000); // Stop recording after 4 seconds
+            })
+            .catch(function(error) {
+                console.log("Error accessing microphone", error);
+                resultsDiv.textContent = "Error accessing microphone";
+            });
+    }
+    startBtn.addEventListener('click', startRecognition);
+
+            recognition.onerror = function(event) {
+                resultsDiv.textContent = 'Error: ' + event.error;
+            };
+
+        
+    </script>
+</body>
+</html>

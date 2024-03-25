@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        body{
+            background-color: #fde8d1;
+        }
+        h1{
+			font-family: 'Algerian','cursive';
+            /* align-self: center; */
+		}
+        .photo-grid {
+            display: grid;
+            background-color: #fde8d1;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px;
+            margin: 15vh auto;
+            max-width: 1200px;
+            padding: 5dvh;
+            padding-top: 2vh;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            transition: transform .3s ease-in-out;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .msg-box {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            background-color: #fde8d1;
+            border-radius: 5px;
+            padding: 10px;
+            width: 80%;
+            max-height: 300px;
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+        }
+
+        .photo-item:hover .msg-box {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Think</h1>
+    <div class="photo-grid">
+        <div class="photo-item">
+            <img src="../static/photos/childhood/c1.jpg" alt="Image 1" >
+            <div class="msg-box">
+                <p>This is image 1. It's a beautiful photo of a sunset over the ocean.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="../static/photos/childhood/c2.jpg" alt="Image 2" >
+            <div class="msg-box">
+                <p>This is image 2. It's a stunning portrait of a model.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="../static/photos/childhood/w12.jpg" alt="Image 3" >
+            <div class="msg-box">
+                <p>This is image 3. It's a breathtaking landscape of a mountain range.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="../static/photos/childhood/c4.jpg" alt="Image 4" >
+            <div class="msg-box">
+                <p>This is image 4. It's a cute photo of a puppy playing in the park.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="../static/photos/childhood/IMG-20240315-WA0007.jpg" alt="Image 5" >
+            <div class="msg-box">
+                <p>Hey, My older-self,<br>Believe in yourself, and never stop learning. The world is full of possibilities.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

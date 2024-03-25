@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMORY LANE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('../static/photos/memory_lane.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #581212;
+            font-family: 'Algerian', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.708);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2{
+            font-family: 'Algerian', cursive;
+            color:rgb(238, 95, 34)
+        }
+
+        @media (max-width: 767.98px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        .rose-gold-button {
+        background-color: #b77985; /* Rose gold color */
+        color: #ffffff;
+        transition: background-color 0.3s ease;
+        }
+
+        .rose-gold-button:hover {
+        background-color: #29a85e; /* Green color */
+        }
+    </style>
+</head>
+<body>
+    <!-- {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %} -->
+    <h1>Welcome to Memory Lane</h1>
+    <div class="container">
+        <h2 >LOGIN</h2>
+        <form action="{{ url_for('login') }}" method="post">
+            <div class="form-group">
+                <label for="password", style="color:rgb(235, 106, 51) ;">PASSWORD:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary rose-gold-button">Submit</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes" >
+            {% for message in messages %}
+                <blockquote style="text-align: center; font-weight: 900; color: #f90000;" >{{ message }}</blockquote>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
