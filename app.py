@@ -52,9 +52,9 @@ def FriendsCorner():
 # def FriendsCorner():
 #     return redirect(url_for('external_url', url='https://friendscorner.vercel.app/'))
 
-@app.route('/external-url/<path:url>')
-def external_url(url):
-    return redirect(url)
+# @app.route('/external-url/<path:url>')
+# def external_url(url):
+#     return redirect(url)
 
 # @app.route('/voice-print', methods=['POST']) 
 # def upload_voice_print(): 
